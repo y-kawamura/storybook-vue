@@ -17,7 +17,7 @@
     </template>
     <template v-else>
       <Task
-        v-for="task in tasks"
+        v-for="task in taskInOrder"
         :key="task.id"
         :task="task"
         v-on="$listeners"
@@ -49,6 +49,12 @@ export default {
   },
 
   computed: {
+    taskInOrder() {
+      return [
+        ...this.tasks.filter((task) => task.state === "TASK_PINNED"),
+        ...this.tasks.filter((task) => task.state !== "TASK_PINNED"),
+      ];
+    },
     isEmpty() {
       return this.tasks.length === 0;
     },
