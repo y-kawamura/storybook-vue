@@ -3,7 +3,7 @@ import * as TaskStories from "./Task.stories";
 
 export default {
   component: PureTaskList,
-  title: "TaskList",
+  title: "PureTaskList",
   decorators: [() => '<div style="padding: 3rem;"><story /></div>'],
 };
 
